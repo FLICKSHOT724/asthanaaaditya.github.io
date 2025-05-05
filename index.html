@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AADITYA ASTHANA - Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #000;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .tab {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab:hover {
+      background: #555;
+    }
+
+    .main {
+      width: 80%;
+      height:100vh;
+      overflow:hidden;
+      position: right;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scroll-name {
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .scroll-name h1 {
+      display: inline-block;
+      font-size: 60px;
+      color: #fff;
+      animation: marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .content {
+      position: right;
+      flex-grow: 1;
+      background: url("my profile.jpg") center center no-repeat;
+      background-size: contain;
+      background-color: rgba(0,0,0,0.7);
+      padding: 40px;
+      overflow-y: auto;
+    }
+
+    .content-inner {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 40px;
+    }
+
+    .content h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .content p, .content ul {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <div class="tab" onclick="showContent('about')">About Me</div>
+    <div class="tab" onclick="showContent('skills')">Skills</div>
+    <div class="tab" onclick="showContent('qualifications')">Qualifications</div>
+    <div class="tab" onclick="showContent('projects')">Projects</div>
+  </div>
+
+  <div class="main">
+    <div class="scroll-name">
+      <h1>AADITYA ASTHANA</h1>
+    </div>
+    <div class="content" id="content">
+      <div class="content-inner">
+        <h2>Welcome to My Profile</h2>
+        <p>Click the tabs on the left to explore more about me.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const content = document.getElementById('content');
+
+    function showContent(tab) {
+      let html = '<div class="content-inner">';
+      switch(tab) {
+        case 'about':
+          html += `<h2>About Me</h2><p>Hello, I am a first-year B.Tech Computer Science student at Dronacharya College of Engineering, specializing in Artificial Intelligence and Machine Learning. Ever since I discovered the power of technology, I’ve been deeply fascinated by the potential of AI to solve complex problems and make a meaningful impact in various fields. My curiosity and passion drive me to learn and explore new technologies, focusing on how algorithms and data can be used to create intelligent systems.<br><br>
+
+Outside of academics, I am an avid cricket player and a passionate technology enthusiast. Playing cricket has taught me the importance of teamwork, strategy, and perseverance—skills I apply in every aspect of my life. My long-term goal is to become a well-rounded AI developer, contributing to projects that are not only technically sound but also socially responsible and ethical. I am excited to continue this journey, learn from others, and apply my skills to create solutions that improve lives and contribute to the advancement of technology.</p>`;
+          break;
+        case 'skills':
+          html += `<h2>Skills</h2><ul><li>✅ Expertise in HTML & CSS for crafting responsive, modern web layouts
+</li><li>✅ Proficient in Python programming with a focus on Machine Learning frameworks</li><li>✅ Working knowledge of Java for object-oriented programming
+</li><li>✅ Foundational skills in C/C++ for system-level programming</li><li>💻 Programming Languages:
+Python, C, C++, HTML, CSS, JavaScript (basic)</li><li>
+⚙ Tools & Technologies:
+Git & GitHub, VS Code, Jupyter Notebook, Flask, Figma (basic UI design)</li><li>
+📊 AI/ML & Data:
+NumPy, Pandas, Matplotlib, Scikit-learn (beginner), Data Visualization</li><li>
+🌐 Web Development:
+Responsive design, Basic frontend development, Flask (beginner backend)</li><li>
+🔧 Other Skills:
+Problem-solving, Team collaboration, Quick learner, Public speaking</li></ul>`;
+          break;
+        case 'qualifications':
+          html += `<h2>Qualifications</h2><p>Institution: Dronacharya College of Engineering, Gurugram
+
+<h2>Program:</h2> Bachelor of Technology (B.Tech) in Computer Science (Artificial Intelligence & Machine Learning)<br>
+
+Duration: 2024 - 2028 (Expected)
+<h3>Key course work:</h3><li>Data Structures and Algorithms
+</li><li>Machine Learning</li><li>Web Development</li><li>Database Management Systems</li><li>Artificial Intelligence</li>
+</p>`;
+          break;
+        case 'projects':
+          html += `<h2>Projects</h2><ul><li>Personal Portfolio Website<br>
+A sleek, fully responsive portfolio website designed to showcase my projects, skills, and professional journey with a modern aesthetic.
+
+Technologies: HTML, CSS, JavaScript</li><li>Face Detector:<br>A Ai powered python program with uses deep learning to recognize faces from pre installed data.</li><li>A Voice Assistant:<br>
+Assiatant that works on voice commands.a python program that deals with python modules to recognise voice commands.</li></ul>`;
+          break;
+        default:
+          html += `<h2>Welcome to My Profile</h2><p>Click the tabs on the left to explore more about me.</p>`;
+      }
+      html += '</div>';
+      content.innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>
